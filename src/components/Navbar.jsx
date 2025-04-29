@@ -45,6 +45,13 @@ function Navbar() {
 
             {/* SECTION 2 — Right part of the navbar with links like cart, orders, and user dropdown */}
             <div className="navbar-section-2 py-lg-0 pb-1 d-flex flex-shrink-1">
+              
+                 {/* Mobile logo (visible on small screens) */}
+                 <div className="veggora-logo-mobile me-4">
+                    <a href="">
+                        <img src="/src/assets/images/website-logo.png" height="45px" alt="" />
+                    </a>
+                </div>
             </div>
         </div>
     )
