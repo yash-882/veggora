@@ -6,6 +6,18 @@
 
 }
 
+/* sticky navbar */
+.stick-navbar {
+    position: fixed;
+    padding: 7px 10px;
+    transition: 0.5s all;
+    width: 100%;
+    box-shadow: 0px 2px 3px rgba(119, 119, 119, 0.254); 
+    top:0; left:0;
+    border-top-right-radius: 10px;  border-bottom-right-radius: 10px;
+}
+
+body{height: 200vh;}
 /* this section contains.. logo, input group, etc.*/
 .navbar-section-1{
     flex-grow: 1; /*grows on desktop*/
@@ -166,5 +178,28 @@
       /* customize placeholder */
       .nav-input-group input::placeholder {
         font-size: 14px;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1025px){
+    .navbar-section-1 {
+        width: 60%;
+    }
+
+    .navbar-section-2 {
+        width: 30%;
+    }
+
+    .nav-input-group {
+        width: 60%;
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .filter-btn {
+        font-size: 15px;
     }
 }

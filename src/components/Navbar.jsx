@@ -1,10 +1,37 @@
 import {Search, ShoppingCartIcon, UserCircle2, LucideShoppingBag, ListFilterIcon} from "lucide-react"
+import { useEffect } from "react";
 
 
 function Navbar() {
+
+    // This `useEffect` sets up a scroll event to make part of the navbar sticky at the top of the screen
+        useEffect(() => {
+            function stickNavbar() {
+                let sec1 = document.querySelector(".navbar-section-1"); 
+                let navContainer = document.querySelector(".custom-navbar");
+    
+                // When the user scrolls past the height of the navbar, make the first section sticky
+                if (window.scrollY >= navContainer.scrollHeight) 
+                    sec1.classList.add("stick-navbar");
+
+                 else 
+                    sec1.classList.remove("stick-navbar");
+                
+            }
+    
+            // Attach scroll event listener
+            window.addEventListener('scroll', stickNavbar);
+    
+            // Clean up the listener when the component unmounts
+            return () => {
+                window.removeEventListener('scroll', stickNavbar);
+            }
+    
+        }, []);
+
     return (
         // Main navbar container: uses Bootstrap utility classes for layout and styling
-        <div className='container-fluid px-2 py-2 px-1g-2 custom-navbar d-flex justify-content-between align-items-center text-white'>
+        <div className='container-fluid px-2 py-2 custom-navbar d-flex justify-content-between align-items-center text-white'>
 
             {/* SECTION 1 — Left part of the navbar with logo, filter button, and search bar */}
             <div className="navbar-section-1 d-flex align-items-center">
