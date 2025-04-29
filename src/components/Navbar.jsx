@@ -44,7 +44,7 @@ function Navbar() {
             </div>
 
             {/* SECTION 2 — Right part of the navbar with links like cart, orders, and user dropdown */}
-            <div className="navbar-section-2 py-lg-0 pb-1 pb-md-0 d-flex  flex-shrink-1">
+            <div className="navbar-section-2 py-lg-0 pb-1 pb-md-0 d-flex flex-wrap  flex-shrink-1">
 
                  {/* Mobile logo (visible on small screens) */}
                  <div className="veggora-logo-mobile me-4">

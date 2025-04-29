@@ -58,6 +58,29 @@
     background-color: rgba(255, 255, 255, 0.07);
 }
 
+/* dropdown login */
+.dropdown-login-options {
+    font-size: 14px;
+    background-color: rgb(40, 40, 40);
+    border-radius: 20px;
+    transition: 0.5s all;
+    animation: dropdown-animation 0.5s;
+}
+
+
+/* Animations */
+/* dropdown animation */
+@keyframes dropdown-animation {
+    from {
+          opacity: 0;
+        }
+
+    to {
+        opacity: 1;
+       
+
+    }
+}
 
 /* MEDIA QUERIES */
 /* For tablets and mobile phones*/
