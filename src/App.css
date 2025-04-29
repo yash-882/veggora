@@ -1,0 +1,21 @@
+/* navbar container */
+.custom-navbar{
+    background-color: #0f0f0f;
+    box-shadow: 0px 1px 2px rgb(55, 55, 55);
+    z-index: 999;
+
+}
+
+/* this section contains.. logo, input group, etc.*/
+.navbar-section-1{
+    flex-grow: 1; /*grows on desktop*/
+    justify-content:space-around; /*in desktop mode*/
+    background-color: inherit;
+}
+/* this section contains nav links */
+.navbar-section-2{
+    flex-grow: 1; /*grows on desktop*/
+    justify-content: center;  /*in desktop mode*/
+    background-color: inherit;
+}
+
