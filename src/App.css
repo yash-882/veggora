@@ -15,7 +15,23 @@
 /* this section contains nav links */
 .navbar-section-2{
     flex-grow: 1; /*grows on desktop*/
-    justify-content: center;  /*in desktop mode*/
+    justify-content: center;  /*on desktop mode*/
     background-color: inherit;
 }
-
+/* search input bar */
+.nav-input-group{
+    height: 40px;
+    width: 480px;
+    background-color: rgb(26, 34, 46);
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
+}
+.nav-input-group input{
+    background-color: transparent;
+    outline: none; 
+}
+/* When its get in focus the bg of input bar's bg and text shadow change */
+.nav-input-group input:focus{
+    transition: all 0.5s;
+    background-color: #000000;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.179);
+}
