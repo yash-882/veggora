@@ -1,4 +1,4 @@
-import {Search, ListFilterIcon} from "lucide-react"
+import {Search, ShoppingCartIcon, UserCircle2, LucideShoppingBag, ListFilterIcon} from "lucide-react"
 
 
 function Navbar() {
@@ -45,13 +45,53 @@ function Navbar() {
 
             {/* SECTION 2 — Right part of the navbar with links like cart, orders, and user dropdown */}
             <div className="navbar-section-2 py-lg-0 pb-1 d-flex flex-shrink-1">
-              
+
                  {/* Mobile logo (visible on small screens) */}
                  <div className="veggora-logo-mobile me-4">
                     <a href="">
                         <img src="/src/assets/images/website-logo.png" height="45px" alt="" />
                     </a>
                 </div>
+
+                   {/* Navigation icons and links */}
+                   <ul className='list-unstyled gap-lg-5 gap-md-4 gap-4 d-flex my-0'>
+
+{/* Cart icon and label */}
+<li className='nav-item d-flex'>
+    <a href="" className='nav-link px-2 d-flex border-0 rounded-3 align-items-center'>
+        <ShoppingCartIcon fill='white' size={26} />
+        <p className='para-link my-0 ms-1'>Cart</p>
+    </a>
+</li>
+
+{/* Orders icon and label */}
+<li className='nav-item d-flex'>
+    <a href="" className='nav-link border-0 rounded-3 d-flex py-0 px-2 align-items-center'>
+        <LucideShoppingBag fill='orange' color='rgb(31, 31, 31)' size={26} strokeWidth={2} />
+        <p className='para-link my-0 ms-1'>Orders</p>
+    </a>
+</li>
+
+{/* Sign-in dropdown with user icon */}
+<li className='nav-item d-flex align-items-center border border-0 dropdown rounded-3 bg-success flex-shrink-0'>
+    <a
+        role="button"
+        href=""
+        id='navbar-login-opt'
+        className='px-2 py-md-2 h-100 py-lg-2 border-0 rounded-3 nav-link d-flex align-items-center'
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <UserCircle2 size={26} color='rgb(42, 42, 42)' strokeWidth={2} />
+        <p className='fw-bold my-0 ms-2'>Sign in</p>
+    </a>
+
+    {/* Dropdown options for signing in */}
+    <ul className='dropdown-menu dropdown-login-options dropdown-menu-dark' aria-labelledby='navbar-login-opt'>
+        <a href='' className="dropdown-item py-2 border border-0 rounded-2">Via Mobile number</a>
+        <a href='' className="dropdown-item py-2 border border-0 rounded-2">Via E-mail address</a>
+    </ul>
+</li>
+</ul>
             </div>
         </div>
     )
