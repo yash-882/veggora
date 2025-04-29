@@ -1,4 +1,4 @@
-import {Search} from "lucide-react"
+import {Search, ListFilterIcon} from "lucide-react"
 
 
 function Navbar() {
@@ -8,6 +8,23 @@ function Navbar() {
 
             {/* SECTION 1 — Left part of the navbar with logo, filter button, and search bar */}
             <div className="navbar-section-1 d-flex align-items-center">
+
+                     {/* Website logo (visible on desktop) */}
+                     <div className="veggora-logo-desktop">
+                    <a href="">
+                        <img src="/src/assets/images/website-logo.png" height="45px" alt="" />
+                    </a>
+                </div>
+
+                {/* Filter button (with icon and label) */}
+                <div className='me-2 me-md-0 ms-md-0 ms-lg-2'>
+                    <a
+                        role="button"
+                        className='nav-link filter-btn px-2 px-lg-2 py-1 d-flex h-100 align-items-center'>
+                        <ListFilterIcon color='#0d6efd' strokeWidth={3} />
+                        <p className='my-0 ms-1'>Filter</p>
+                    </a>
+                </div>
   
                 {/* Search bar */}
                 <div className='nav-input-group rounded-2 d-flex'>

@@ -35,3 +35,15 @@
     background-color: #000000;
     box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.179);
 }
+
+/* filter button in nav section 1 */
+.filter-btn{
+    height: 40px; 
+    font-size: 12px;
+    border: rgba(255, 255, 255, 0.045) solid 1px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.063);
+}
+.filter-btn:hover{
+    background-color: rgba(255, 255, 255, 0.12);
+}
