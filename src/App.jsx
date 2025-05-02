@@ -5,9 +5,13 @@ import {Outlet} from "react-router"
 function App() {
   
   return (
-    <>
+    <> 
 <Navbar/>
-    <Outlet/>
+<main className='px-2 py-2'>
+
+<Outlet/>
+
+</main>
     </>)
 }
 
