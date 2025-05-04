@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCategories from '@components/ProductCategories.jsx'
+import ProductCategories from '@components/home-page/ProductCategories.jsx'
 
 function HomePage() {
 
