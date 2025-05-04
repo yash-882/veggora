@@ -7,7 +7,8 @@ function App() {
   return (
     <> 
 <Navbar/>
-<main className='px-2 py-2'>
+{/* wraps main content */}
+<main className='px-1 py-1 '>
 
 <Outlet/>
 
