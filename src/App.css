@@ -79,7 +79,42 @@ body{height: 200vh;
     transition: 0.5s all;
     animation: dropdown-animation 0.5s;
 }
+p{
+    letter-spacing: 1px;
+}
 
+/* HOME PAGE */
+
+.homepage-elements{
+    border-radius:10px;
+    background-color: #1d1d1d;
+    /* box-shadow: 0px 2px 4px rgb(0, 0, 0); */
+}
+/* contains grocery product types */
+.category-container{
+    border-radius:5px;
+    background-color: #192125;
+    box-shadow: 0px 2px 5px black;
+    border-radius: 20px;
+}
+
+.show-more-categories{
+    display:none;
+}
+
+/* link */
+.category-label a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+/* product image in categories section*/
+.category-label img{
+    width: 80px;
+    height: 80px;
+}
 
 /* Animations */
 /* dropdown animation */
@@ -149,6 +184,12 @@ body{height: 200vh;
     /* shows click effect on touch devices*/
     .filter-btn:active {
         background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* expand category section */
+    .show-more-categories{
+        display:inline ;
+        color: white;
     }
 }
 

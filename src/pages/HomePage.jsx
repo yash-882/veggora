@@ -1,12 +1,17 @@
 import React from 'react'
-import ProductCategories from '../components/ProductCategories'
+import ProductCategories from '@components/ProductCategories.jsx'
 
 function HomePage() {
-  return (
-    <div className='w-100 h-100'>
 
+  return (
+    // HOME PAGE
+    <div className='container-fluid'>
+
+      {/* home page section 1 */}
+      <div className=' row homepage-section-1 justify-content-around'>
+        {/* display few categories */}
         <ProductCategories/>
-      
+      </div>
     </div>
   )
 }
