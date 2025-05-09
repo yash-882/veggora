@@ -1,5 +1,6 @@
 import productModel from "../models/product-model.js";
 import sendResponse from "../utils/functions/api-response.js"; //response handler
+import QueryOperations from "../utils/classes/query-operations.js";
 
 // wraps async handler
 function wrapper(func) {
@@ -29,7 +30,12 @@ const getProductByID = wrapper(async (req, res, next) => {
 
 // get all products
 const getProducts = wrapper(async (req, res, next) => {
-    const products = await productModel.find({});
+    let filter = new QueryOperations(req.query).createFilter();
+    console.log(filter);
+    
+
+    const products = await productModel.find(filter).select("-__v -imageURLs -_id -createdAt -ratings")
+
     
     // if no products were found
     if (!products.length) {
@@ -48,6 +54,7 @@ const getProducts = wrapper(async (req, res, next) => {
 
 // create product
 const createProduct = wrapper(async (req, res, next) => {
+
     const product = await productModel.create(req.body);
 
     // checks if multiple products are created
