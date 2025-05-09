@@ -1,7 +1,7 @@
 class QueryOperations {
 
     constructor(query) {
-        this.query = query;
+        this.query = {...query};
     }
 
     //converts query fields that contain only digits (to Number)
@@ -11,6 +11,11 @@ class QueryOperations {
         //can be an object or primitive value
         let value = this.query[fieldName];
 
+        // if the field value is invalid
+        if(value == null){
+            delete this.query[fieldName]
+            return
+        }
         // checks if the field is an object or not
         let isObject = typeof value === 'object' && value != null && !Array.isArray(value);
 
