@@ -2,6 +2,7 @@ class QueryOperations {
 
     constructor(query) {
         this.query = {...query};
+        this.sortingField = query.sort || null; //null because mongoose .sort() either expect a field or null
     }
 
     //converts query fields that contain only digits (to Number)
@@ -35,8 +36,6 @@ class QueryOperations {
             // if no operators matched the valid operations
             if (!Object.keys(value).length)
                 delete this.query[fieldName]
-
-
         }
 
         else {
@@ -51,7 +50,7 @@ class QueryOperations {
     }
 
     createFilter() {
-        let numericFields = ['reviews', 'price'];
+        let numericFields = ['ratings', 'price'];
         let stringFields = ['category', 'name', 'description']
         this.query = Object.assign({}, this.query)
 
@@ -60,6 +59,8 @@ class QueryOperations {
             // if query has any of specified numeric properties
             if (Object.hasOwn(this.query, field))
                 this.normalizeQueryFilters(field);
+
+          
         }
 
         // checks if the query has multiple values(array) in its fields
@@ -85,6 +86,14 @@ class QueryOperations {
         this.query = JSON.parse(this.query)
 
         return this.query
+    }
+
+    createSortFields(){
+          delete this.query['sort']; //remove sort field from query
+
+        //  is sorting applied
+          if(this.sortingField)
+          this.sortingField = this.sortingField.split(',').join(' ') //remove commas 
     }
 }
 
