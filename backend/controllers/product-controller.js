@@ -32,13 +32,13 @@ const getProductByID = wrapper(async (req, res, next) => {
 const getProducts = wrapper(async (req, res, next) => {
     // extracting and reconstruting the query
     let query = new QueryOperations(req.query)
+    query.removeQueryMethods() //removes methods like sort,limit,etc from filter 
     query.createFilter(); //sets filter
     query.createSortFields(); //sets fields to be sorted
-    
 
-    const products = await productModel.find(query.query)
+    const products = await productModel.find(query.filter)
     .sort(query.sortingField)
-    .select("-__v -imageURLs -_id -createdAt");
+    .select(query.select);
     
     // if no products were found
     if (!products.length) {
