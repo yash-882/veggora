@@ -1,10 +1,12 @@
 import productModel from "../models/product-model.js";
 import sendResponse from "../utils/functions/api-response.js"; //response handler
-import QueryOperations from "../utils/classes/query-operations.js";
+import handleQuery from '../utils/functions/handle-query.js'
+import { productFields as validFields } from '../constants/DB-collections-fields.js'
 
 // wraps async handler
 function wrapper(func) {
     return (req, res, next) => {
+        handleQuery(req, validFields) //handles query strings
         func(req, res, next).catch(next)
     }
 }
@@ -14,32 +16,29 @@ const getProductByID = wrapper(async (req, res, next) => {
     const product = await productModel.findById(req.params.id);
 
     // if no product associated with the specified ID exists
-        if (!product) {
-            return sendResponse(res, {
-                statusCode: 404,
-                message: "No product was found"
-            })
-        }
-
-        // fetched successfully
-        sendResponse(res, {
-            statusCode: 200,
-            data: product,
+    if (!product) {
+        return sendResponse(res, {
+            statusCode: 404,
+            message: "No product was found"
         })
+    }
+
+    // fetched successfully
+    sendResponse(res, {
+        statusCode: 200,
+        data: product,
+    })
 })
 
 // get all products
 const getProducts = wrapper(async (req, res, next) => {
-    // extracting and reconstruting the query
-    let query = new QueryOperations(req.query)
-    query.createFilter(); //sets filter
-    query.createSortFields(); //sets fields to be sorted
-    
+    let query = req.filteredQuery;
 
-    const products = await productModel.find(query.query)
-    .sort(query.sortingField)
-    .select("-__v -imageURLs -_id -createdAt");
-    
+    // querying in DB
+    const products = await productModel.find(query.filter)
+        .sort(query.sortingField)
+        .select(query.select); 
+
     // if no products were found
     if (!products.length) {
         return sendResponse(res, {
@@ -98,23 +97,23 @@ const updateProductByID = wrapper(async (req, res, next) => {
             }
         );
 
-        // updation successful, sending updated products
-        sendResponse(res, {
-            statusCode: 200,
-            message: 'Product has been updated',
-            data: product,
-        })
+    // updation successful, sending updated products
+    sendResponse(res, {
+        statusCode: 200,
+        message: 'Product has been updated',
+        data: product,
+    })
 })
 
 const replaceProductByID = wrapper(async (req, res, next) => {
-   const product = await productModel.findByIdAndReplace(req.params.id, req.body);
+    const product = await productModel.findByIdAndReplace(req.params.id, req.body);
 
-   if(!product){
-    return sendResponse(res, {
-        statusCode: 404,
-        message: "No product associated with the ID was found"
-    })
-}
+    if (!product) {
+        return sendResponse(res, {
+            statusCode: 404,
+            message: "No product associated with the ID was found"
+        })
+    }
 
     sendResponse(res, {
         statusCode: 200,
