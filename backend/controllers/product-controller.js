@@ -32,12 +32,12 @@ const getProductByID = wrapper(async (req, res, next) => {
 
 // get all products
 const getProducts = wrapper(async (req, res, next) => {
-    let query = req.filteredQuery;
-
+    const query = req.filteredQuery;
+    console.log(query.filter);
     // querying in DB
     const products = await productModel.find(query.filter)
         .sort(query.sortingField)
-        .select(query.select); 
+        .select(query.select);
 
     // if no products were found
     if (!products.length) {
@@ -73,7 +73,14 @@ const createProduct = wrapper(async (req, res, next) => {
 
 // delete product by ID
 const deleteProductByID = wrapper(async (req, res, next) => {
-    await productModel.findByIdAndDelete(req.params.id);
+    let product = await productModel.findByIdAndDelete(req.params.id);
+
+    if (!product) {
+        return sendResponse(res, {
+            message: 'No product was found to delete',
+            statusCode: 404,
+        });
+    }
 
     // deletion successful
     res.status(204).end();
@@ -81,11 +88,38 @@ const deleteProductByID = wrapper(async (req, res, next) => {
 
 // delete products
 const deleteProducts = wrapper(async (req, res, next) => {
-    await productModel.deleteMany({});
+    const query = req.filteredQuery
+    const result = await productModel.deleteMany(query.filter);
 
+    // no products are found
+    if (!result.deletedCount) {
+        return sendResponse(res, {
+            message: 'No products were found to delete',
+            statusCode: 404,
+        });
+    }
     // deletion successful
     res.status(204).end();
 })
+
+const updateProducts = wrapper(async (req, res, next) => {
+    const query = req.filteredQuery
+    const result = await productModel.updateMany(query.filter, { '$set': req.body });
+
+    // no products are found
+    if (!result.modifiedCount) {
+        return sendResponse(res, {
+            message: 'No products were found to update',
+            statusCode: 404,
+        });
+    }
+    // updation successful
+    sendResponse(res, {
+        message: 'Products have been updated',
+        statusCode: 200,
+    });
+})
+
 
 // update product by ID
 const updateProductByID = wrapper(async (req, res, next) => {
@@ -97,12 +131,19 @@ const updateProductByID = wrapper(async (req, res, next) => {
             }
         );
 
-    // updation successful, sending updated products
-    sendResponse(res, {
-        statusCode: 200,
-        message: 'Product has been updated',
-        data: product,
-    })
+    if (!product){
+        return sendResponse(res, {
+            statusCode: 404,
+            message: 'No product was found to update',
+        })
+    }
+
+        // updation successful, sending updated products
+        sendResponse(res, {
+            statusCode: 200,
+            message: 'Product has been updated',
+            data: product,
+        })
 })
 
 const replaceProductByID = wrapper(async (req, res, next) => {
@@ -128,5 +169,6 @@ export default {
     getProductByID,
     replaceProductByID,
     getProducts,
-    deleteProducts
+    deleteProducts,
+    updateProducts
 }

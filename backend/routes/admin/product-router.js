@@ -7,6 +7,7 @@ productRouter.route('/')
 .get(productController.getProducts) // get products
 .post(productController.createProduct) // create product
 .delete(productController.deleteProducts) // delete products
+.patch(productController.updateProducts)
 
 productRouter.route('/:id')
 .get(productController.getProductByID) //get product by ID

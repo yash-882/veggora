@@ -58,7 +58,7 @@ class QueryOperations {
 
     createFilter() {
         let numericFields = ['ratings', 'price'];
-        let stringFields = ['category', 'name', 'description']
+        let allFields = ['category', 'name', 'description', 'ratings', 'price', '_id']
         
         // iterating over numeric fields
         for (let field of numericFields) {
@@ -68,7 +68,7 @@ class QueryOperations {
         }
 
         // checks if the filter has multiple values(array) in its fields
-        for (let field of stringFields) {
+        for (let field of allFields) {
             let docField = this.filter[field]
 
             // is array
