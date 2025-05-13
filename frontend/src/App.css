@@ -79,9 +79,7 @@ body{height: 200vh;
     transition: 0.5s all;
     animation: dropdown-animation 0.5s;
 }
-p{
-    letter-spacing: 1px;
-}
+
 
 /* HOME PAGE */
 
@@ -112,8 +110,8 @@ p{
 
 /* product image in categories section*/
 .category-label img{
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 }
 
 /* Animations */
@@ -138,7 +136,7 @@ p{
     }
 
     .navbar-section-1 {
-        justify-content: space-between;
+        justify-content: start;
         width: 100%;
         order: 2; /*swapping the positions of nav section 1 and 2*/
     }
@@ -157,8 +155,8 @@ p{
 
     /* adjust input group size for smaller screens*/
     .nav-input-group {
-        height: 42px;
-        width: 80%;
+        height: 45px;
+        width: 100%;
     }
 
     /* customize placeholder */
@@ -177,8 +175,8 @@ p{
     }
 
     /* font gets smaller */
-    .filter-btn {
-        font-size: 10px;
+    .filter-btn p{
+       display: none;
     }
 
     /* shows click effect on touch devices*/
@@ -215,7 +213,7 @@ p{
     /* adjust input group size for smaller screens*/
     .nav-input-group {
         height: 42px;
-        width: 55%;
+        width: 60%;
     }
       /* customize placeholder */
       .nav-input-group input::placeholder {
@@ -243,5 +241,14 @@ p{
 
     .filter-btn {
         font-size: 15px;
+    }
+}
+/* for extra small screens */
+@media (max-width: 350px){
+    #navbar-login-opt p{
+        display: none;
+    }
+    .nav-item{
+        height: 40px;
     }
 }

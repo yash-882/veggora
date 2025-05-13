@@ -31,7 +31,7 @@ function Navbar() {
 
     return (
         // Main navbar container: uses Bootstrap utility classes for layout and styling
-        <div className='container-fluid px-2 py-2 custom-navbar d-flex justify-content-between align-items-center text-white'>
+        <div className='container-fluid mx-0 px-1 py-2 custom-navbar d-flex justify-content-between align-items-center text-white'>
 
             {/* SECTION 1 — Left part of the navbar with logo, filter button, and search bar */}
             <div className="navbar-section-1 d-flex align-items-center">
@@ -57,21 +57,21 @@ function Navbar() {
                 <div className='nav-input-group rounded-2 d-flex'>
                     <form action="" className='d-flex align-items-center w-100'>
                         {/* Search icon inside button */}
-                        <button className='bg-transparent border border-0 px-3'>
+                        <button className='bg-transparent border border-0 px-3' >
                             <Search color="white" strokeWidth={3} />
                         </button>
 
                         {/* Search input */}
                         <input
                             type="text"
-                            className='text-white px-2 border rounded-start-0 rounded-end-2 border-0 h-100 w-100'
-                            placeholder='Search grocery items or categories...' />
+                            className='text-white px-1 border rounded-start-0 rounded-end-2 border-0 h-100 w-100'
+                            placeholder='Search grocery items...' />
                     </form>
                 </div>
             </div>
 
             {/* SECTION 2 — Right part of the navbar with links like cart, orders, and user dropdown */}
-            <div className="navbar-section-2 py-lg-0 pb-1 pb-md-0 d-flex flex-wrap  flex-shrink-1">
+            <div className="navbar-section-2 py-lg-0 pb-1 pb-md-0 d-flex ">
 
                  {/* Mobile logo (visible on small screens) */}
                  <div className="veggora-logo-mobile me-4">
@@ -81,11 +81,11 @@ function Navbar() {
                 </div>
 
                    {/* Navigation icons and links */}
-                   <ul className='list-unstyled gap-xl-5 gap-md-3 gap-3 d-flex my-0'>
+                   <ul className='list-unstyled nav-options-ul gap-xl-5 gap-md-3 gap-3 d-flex my-0'>
 
 {/* Cart icon and label */}
 <li className='nav-item d-flex'>
-    <a href="" className='nav-link px-2 d-flex border-0 rounded-3 align-items-center'>
+    <a href="" className='px-1 nav-link  d-flex border-0 rounded-3 align-items-center'>
         <ShoppingCartIcon fill='white' size={26} />
         <p className='para-link my-0 ms-1'>Cart</p>
     </a>
@@ -93,19 +93,19 @@ function Navbar() {
 
 {/* Orders icon and label */}
 <li className='nav-item d-flex'>
-    <a href="" className='nav-link border-0 rounded-3 d-flex py-0 px-2 align-items-center'>
+    <a href="" className='px-1 nav-link border-0 rounded-3 d-flex  align-items-center'>
         <LucideShoppingBag fill='orange' color='rgb(31, 31, 31)' size={26} strokeWidth={2} />
         <p className='para-link my-0 ms-1'>Orders</p>
     </a>
 </li>
 
 {/* Sign-in dropdown with user icon */}
-<li className='nav-item d-flex align-items-center border border-0 dropdown rounded-3 bg-success flex-shrink-0'>
+<li className='nav-item d-flex align-items-center bg-success border border-0 dropdown rounded-5'>
     <a
         role="button"
         href=""
         id='navbar-login-opt'
-        className='px-2 py-md-2 h-100 py-lg-2 border-0 rounded-3 nav-link d-flex align-items-center'
+        className='px-2 py-md-2 h-100 py-lg-2 rounded-5 border-0 nav-link-login nav-link d-flex align-items-center'
         data-bs-toggle="dropdown"
         aria-expanded="false">
         <UserCircle2 size={26} color='rgb(42, 42, 42)' strokeWidth={2} />
