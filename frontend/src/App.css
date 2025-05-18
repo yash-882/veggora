@@ -10,7 +10,7 @@
     padding: 7px 10px;
     transition: 0.5s all;
     width: 100%;
-    box-shadow: 0px 2px 3px rgba(119, 119, 119, 0.254); 
+    border-bottom:solid 1px #4a4a4aab; 
     top:0; left:0;
     border-top-right-radius: 10px;  border-bottom-right-radius: 10px;
 }
@@ -36,7 +36,8 @@ body{height: 200vh;
     height: 40px;
     width: 480px;
     background-color: rgb(26, 34, 46);
-    box-shadow: 0px 0px 3px rgb(0, 0, 0);
+    box-shadow: 0px 0px 3px rgb(0, 0, 0); 
+    border: rgba(255, 255, 255, 0.09) solid 1px;
 }
 .nav-input-group input{
     background-color: transparent;
@@ -96,10 +97,6 @@ body{height: 200vh;
     border-radius: 20px;
 }
 
-.show-more-categories{
-    display:none;
-}
-
 /* link */
 .category-label a{
     color: rgb(255, 255, 255);
@@ -146,6 +143,7 @@ body{height: 200vh;
         width: 100%;
         margin-bottom: 7px;
         justify-content: space-between;
+        padding: 3px 0px;
     }
 
     .navbar-section-1 .para-link,
