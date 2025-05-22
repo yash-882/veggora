@@ -1,5 +1,5 @@
 /* navbar container */
-.custom-navbar{
+.custom-navbar {
     background-color: #0f0f0f;
     z-index: 999;
 }
@@ -7,68 +7,113 @@
 /* sticky navbar */
 .stick-navbar {
     position: fixed;
-    padding: 7px 10px;
-    transition: 0.5s all;
-    width: 100%;
-    border-bottom:solid 1px #4a4a4aab; 
-    top:0; left:0;
-    border-top-right-radius: 10px;  border-bottom-right-radius: 10px;
+    padding: 7px;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    border-bottom: solid 1px #ffffff22;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: stick-navbar .5s ease;
+}
+/*  navbar animation on unstick */ 
+.navbar-section-2.remove-animation-navbar,
+.custom-navbar.remove-animation-navbar{
+    animation: remove-stick-navbar 0.3s ease;
+}
+@keyframes stick-navbar {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+/* navbar animation on unstick */
+@keyframes remove-stick-navbar {
+    from {
+        opacity: 0;
+        transform: translateY(-500px) 
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+
+/* disappears when navbar is stuck */
+.stick-navbar .veggora-logo-desktop {
+    display: none
 }
 
 /* test */
-body{height: 200vh;
+body {
+    height: 200vh;
     background-color: #0f0f0f;
 }
+
 /* this section contains.. logo, input group, etc.*/
-.navbar-section-1{
-    flex-grow: 1; /*grows on desktop*/
-    justify-content:space-around; /*in desktop mode*/
+.navbar-section-1 {
+    justify-content: center;
+    /*in desktop mode*/
     background-color: inherit;
-}
-/* this section contains nav links */
-.navbar-section-2{
-    flex-grow: 1; /*grows on desktop*/
-    justify-content: center;  /*on desktop mode*/
-    background-color: inherit;
-}
-/* search input bar */
-.nav-input-group{
-    height: 40px;
-    width: 480px;
-    background-color: rgb(26, 34, 46);
-    box-shadow: 0px 0px 3px rgb(0, 0, 0); 
-    border: rgba(255, 255, 255, 0.09) solid 1px;
-}
-.nav-input-group input{
-    background-color: transparent;
-    outline: none; 
-}
-/* When its get in focus the bg of input bar's bg and text shadow change */
-.nav-input-group input:focus{
-    transition: all 0.5s;
-    background-color: #000000;
-    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.179);
 }
 
-/* filter button in nav section 1 */
-.filter-btn{
-    height: 40px; 
-    font-size: 12px;
-    border: rgba(255, 255, 255, 0.045) solid 1px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.063);
+/* this section contains nav links */
+.navbar-section-2 {
+    justify-content: center;
+    /*on desktop mode*/
+    background-color: inherit;
 }
-.filter-btn:hover{
-    background-color: rgba(255, 255, 255, 0.12);
+
+/* search input bar */
+.nav-input-group {
+    height: 45px;
+    border-radius: 15px;
+    background-color: rgb(26, 34, 46);
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
+
+.nav-input-group input {
+    border-radius: 10px;
+    background-color: transparent;
+    outline: none;
+    border: none
+}
+
+/* When its get in focus the bg of input bar's bg and text shadow change */
+.nav-input-group input:focus {
+    transition: all 0.3s;
+    background-color: rgb(37, 37, 37);
+    outline: 3px rgb(45, 45, 45) solid;
+}
+
+.nav-input-group input::placeholder {
+    font-weight: 600;
+    color: rgb(183, 183, 183);
+    letter-spacing: 1px;
+}
+
+/* location. based on whether the user has set the addresss or not */
+.location-info h5 {
+    font-weight: 800;
+}
+
+/* edit address or view full address */
+.location-info a {
+    font-size: 14px;
+    text-decoration: none;
+}
+
 
 /* on desktop this icon won't be visible */
-.veggora-logo-mobile{
-    display:none
+.veggora-logo-mobile {
+    display: none
 }
 
 /* effects on hovering (desktop) */
-.nav-link:hover{
+.nav-link:hover {
     background-color: rgba(255, 255, 255, 0.07);
 }
 
@@ -76,90 +121,142 @@ body{height: 200vh;
 .dropdown-login-options {
     font-size: 14px;
     background-color: rgb(40, 40, 40);
-    border-radius: 20px;
+    border-radius: 10px;
     transition: 0.5s all;
     animation: dropdown-animation 0.5s;
+}
+
+/* login button */
+.nav-item-login {
+    background-color: #444d6b;
+    box-shadow: 0px 0px 5px #101010;
+}
+
+.nav-link-login p {
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+
 }
 
 
 /* HOME PAGE */
 
-.homepage-elements{
-    border-radius:10px;
-    background-color: #1d1d1d;
-    /* box-shadow: 0px 2px 4px rgb(0, 0, 0); */
-}
-/* contains grocery product types */
-.category-container{
-    border-radius:5px;
-    background-color: #192125;
-    box-shadow: 0px 2px 5px black;
-    border-radius: 20px;
-}
-
-/* link */
-.category-label a{
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 13px;
-}
-
-
-/* product image in categories section*/
-.category-label img{
-    width: 70px;
-    height: 70px;
-}
 
 /* Animations */
 /* dropdown animation */
 @keyframes dropdown-animation {
     from {
-          opacity: 0;
-        }
+
+        opacity: 0;
+    }
 
     to {
-        opacity: 1;
-       
 
+        opacity: 1;
     }
 }
 
 /* MEDIA QUERIES */
-/* For tablets and mobile phones*/
-@media (max-width:768px) {
+
+/* tablets */
+@media (min-width:531px) and (max-width:840px) {
     .custom-navbar {
-        flex-direction: column; /*for small screens nav section 1 and 2 place vertically*/
+        /*for small screens nav section 1 and 2 place vertically*/
+        flex-direction: column;
     }
 
+    /* search bar */
     .navbar-section-1 {
-        justify-content: start;
+        order: 3;
+        /*swapping the positions of nav sections*/
         width: 100%;
-        order: 2; /*swapping the positions of nav section 1 and 2*/
+        justify-content: center;
+        margin-bottom: 3px;
     }
-
-    .navbar-section-2 {
-        order: 1;  /*swapping the positions of nav section 1 and 2*/
+    
+    /* nav links section */
+    .navbar-section-3 {
+        order: 1;
+        /*swapping the positions of nav sections*/
         width: 100%;
-        margin-bottom: 7px;
+        margin-bottom: 3px;
         justify-content: space-between;
-        padding: 3px 0px;
     }
+    
+    /* delivery address info and more */
+    .navbar-section-2 {
+        justify-content: center;
+        width: 100%;
+        order: 3;/*swapping the positions of nav sections*/
 
-    .navbar-section-1 .para-link,
-    .navbar-section-2 .para-link {
-        display: none /*removing labels from small screen devices*/
     }
 
     /* adjust input group size for smaller screens*/
     .nav-input-group {
         height: 45px;
+        width: 80%;
+    }
+
+    /* visible logo for small screens */
+    .veggora-logo-mobile {
+        display: block;
+    }
+
+    /* not visible on small screens */
+    .veggora-logo-desktop {
+        display: none;
+    }
+
+
+
+}
+
+/*  mobile phones*/
+@media (max-width:530px) {
+    .custom-navbar {
+        flex-direction: column;
+        /*for small screens nav section 1 and 2 place vertically*/
+    }
+
+    /* delivery address info and more */
+    .navbar-section-1 {
+        justify-content: space-evenly;
+        width: 100%;
+        order: 2;/*swapping the positions of nav sections*/
+        margin-bottom: 3px;
+    }
+    
+    /* search bar */
+    .navbar-section-2 {
+        order: 3;
+        /*swapping the positions of nav sections*/
+        width: 100%;
+        justify-content: center;
+    }
+    
+    
+    /* links */
+    .navbar-section-3 {
+        order: 1;
+        /*swapping the positions of nav sections*/
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 3px;
+    }
+
+    .navbar-section-3 .para-link {
+        display: none
+            /*removing labels from small screen devices*/
+    }
+
+    /* adjust input group size for smaller screens*/
+    .nav-input-group {
         width: 100%;
     }
 
     /* customize placeholder */
     .nav-input-group input::placeholder {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     /* visible logo for small screens */
@@ -173,80 +270,74 @@ body{height: 200vh;
     }
 
     /* font gets smaller */
-    .filter-btn p{
-       display: none;
+    .nav-link-login {
+        font-size: 14px;
     }
 
-    /* shows click effect on touch devices*/
-    .filter-btn:active {
-        background-color: rgba(255, 255, 255, 0.12);
-    }
-
-    /* expand category section */
-    .show-more-categories{
-        display:inline ;
-        color: white;
-    }
-}
-
-/* For small desktop*/
-@media (min-width:769px) and (max-width:1024px) {
-    .navbar-section-1 {
-        justify-content: space-evenly;
-        width: 100%;
-    }
-
-    .navbar-section-2 {
-        order: 1;  /*swapping the positions of nav section 1 and 2*/
-        width: 40%;
-        justify-content: center;
-    
-    }
-    
-    .navbar-section-1 .para-link,
-    .navbar-section-2 .para-link {
-        display: none /*removing labels from small screen devices*/
-    }
-    
-    /* adjust input group size for smaller screens*/
-    .nav-input-group {
-        height: 42px;
-        width: 60%;
-    }
-      /* customize placeholder */
-      .nav-input-group input::placeholder {
+    /* link to all products of a specific category */
+    .see-all-category-link {
         font-size: 14px;
     }
 }
 
-/* Desktops */
-@media (min-width: 1025px){
-    .navbar-section-1 {
-        width: 60%;
+/* For small desktop*/
+@media (min-width:841px) and (max-width:1031px) {
+    .navbar-section-3 {
+        justify-content: center;
     }
 
-    .navbar-section-2 {
-        width: 30%;
+
+    .navbar-section-3 .para-link {
+        display: none
+            /*removing labels from small screen devices*/
     }
 
+    /* adjust input group size for smaller screens*/
     .nav-input-group {
-        width: 60%;
+        width: 350px;
+    }
+
+    /* customize placeholder */
+    .nav-input-group input::placeholder {
+        font-size: 14px;
+    }
+
+    .nav-link-login {
+        font-size: 12px;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1030px) {
+    .nav-input-group {
+        width: 480px;
     }
 
     .nav-link {
-        font-size: 15px;
-    }
-
-    .filter-btn {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
+
 /* for extra small screens */
-@media (max-width: 350px){
-    #navbar-login-opt p{
-        display: none;
-    }
-    .nav-item{
+@media (max-width: 386px) {
+    .nav-item {
         height: 40px;
+    }
+
+    .category-link {
+        font-size: 11px;
+    }
+
+    .category-name {
+        font-size: 13px;
+    }
+
+    .see-all-category-link {
+        font-size: 10px;
+    }
+
+    .nav-link-login {
+        font-size: 10px;
+        padding: 0px;
     }
 }

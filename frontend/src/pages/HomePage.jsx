@@ -8,7 +8,7 @@ function HomePage() {
     <div className='container-fluid'>
 
       {/* home page section 1 */}
-      <div className=' row homepage-section-1 justify-content-around'>
+      <div className=' row homepage-section-1 justify-content-evenly'>
         {/* display few categories */}
         <ProductCategories/>
       </div>

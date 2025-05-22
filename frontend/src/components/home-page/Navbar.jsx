@@ -49,7 +49,7 @@ function Navbar() {
             // if navigation bar is sticked to the top
             // then only remove animation should be applied
             // both mobile and desktop use removal animation on navContainer
-            if (stickRemovalAnimation) {
+           if (stickRemovalAnimation) {          
                 let isSticked = sec2.classList.contains('stick-navbar') || 
                 navContainer.classList.contains('stick-navbar')
 
