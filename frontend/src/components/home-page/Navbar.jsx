@@ -34,16 +34,14 @@ function Navbar() {
             }
             // for desktops
             else  {
+                // always remove margin-top of main-content
+                mainContent.style.marginTop = '0px'
                 // always remove sticky behaviour from section-1(mobile view) 
                 // before sticking the desktop's nav 
-                navContainer.classList.remove('stick-navbar')
+                sec2.classList.remove('stick-navbar')
 
                 // stick navbar by checking 'shouldStick'*true -> stick, false->unstick*
                 navContainer.classList.toggle("stick-navbar", shouldStick);
-
-                // setting margin to avoid the main content from crossing the top
-                mainContent.style.marginTop = shouldStick ?
-                    `${navContainer.offsetHeight}px` : mainContent.style.marginTop = '0px'
             }
 
             // if navigation bar is sticked to the top

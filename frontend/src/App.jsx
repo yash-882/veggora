@@ -8,7 +8,7 @@ function App() {
     <> 
 <Navbar/>
 {/* wraps main content */}
-<main className='px-1 py-1 pt-3 '>
+<main className='py-1 main-content pt-3 '>
 
 <Outlet/>
 

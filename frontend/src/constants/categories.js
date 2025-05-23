@@ -1,55 +1,151 @@
-import snacks from "@assets/images/product-category-images/snacks.png"
-import vegetables from "@assets/images/product-category-images/vegetables.jpg"
-import dairy from "@assets/images//product-category-images/dairy.png"
-import fruits from "@assets/images/product-category-images/fruits.png"
-import muffins from "@assets/images/product-category-images/muffin.png"
-import healthAndWelless from "@assets/images/product-category-images/health_wellness.png"
-import babyFood from "@assets/images/product-category-images/baby-food.jpg"
-import skinCare from "@assets/images/product-category-images/skin_care.png"
+import milk from '@assets/images/product-category-images/milk.png'
+import ghee from '@assets/images/product-category-images/desi-ghee.png'
+import butterAndDahi from '@assets/images/product-category-images/butter.png'
+import PannerAndCheese from '@assets/images/product-category-images/cheese.png'
+import chipsAndNamkeen from '@assets/images/product-category-images/chips.png'
+import dryFruits from '@assets/images/product-category-images/dry-fruits.png'
+import chocolates from '@assets/images/product-category-images/chocolates.png'
+import biscuits from '@assets/images/product-category-images/biscuits.png'
+import softDrinks from '@assets/images/product-category-images/soft-drinks.png'
+import water from '@assets/images/product-category-images/water.png'
+import juices from '@assets/images/product-category-images/juices.png'
+import coffee from '@assets/images/product-category-images/coffee.png'
+import feedingAndNursing from '@assets/images/product-category-images/feeding-nursing.png'
+import babyBathingSkincare from '@assets/images/product-category-images/baby-bathing-skincare.png'
+import diaperingAndHygiene from '@assets/images/product-category-images/diapering-hygiene.png'
+import leafyVegetables from '@assets/images/product-category-images/leafy-vegetables.png'
+import rootVegetables from '@assets/images/product-category-images/root-vegetables.png'
+import fruits from '@assets/images/product-category-images/fruits-img.png'
+import moisturizers from '@assets/images/product-category-images/moisturizers.png'
+import sunscreens from '@assets/images/product-category-images/sunscreens.png'
+import faceWash from '@assets/images/product-category-images/face-wash.png'
+import bodyWash from '@assets/images/product-category-images/body-wash.png'
+import babyOil from '@assets/images/product-category-images/baby-oil.png'
+import exoticVegetables from '@assets/images/product-category-images/exotic-vegetables.png'
 
 
-let categories = [
+
+export const dairy = [
     {
-        label: 'Vegetables',
-        image: vegetables
+        productName: 'Milk',
+        imageUrl: milk
     },
     {
-        label: "Snacks",
-        image: snacks
+        productName: ' Desi Ghee ',
+        imageUrl: ghee
     },
     {
-        label: "Dairy",
-        image: dairy
+        productName: 'Butter & Curd',
+        imageUrl: butterAndDahi
     },
     {
-        label: "Fruits",
-        image: fruits
+        productName: 'Paneer & Cheese',
+        imageUrl: PannerAndCheese
+    },
+
+]
+
+export const snacks = [
+    {
+        productName: 'Biscuits',
+        imageUrl: biscuits
+    },
+
+    {
+        productName: 'Dry Fruits',
+        imageUrl: dryFruits
     },
     {
-        label: "Muffins",
-        image: muffins
+        productName: 'Chips & Bhujia',
+        imageUrl: chipsAndNamkeen
     },
     {
-        label: "Health & Wellness",
-        image: healthAndWelless
-    },
-    {
-        label: "Baby Food",
-        image: babyFood
-    },
-    {
-        label: "Skin Care",
-        image: skinCare
+        productName: 'Chocolates & Sweets',
+        imageUrl: chocolates
     },
 ]
-    
 
-    // vegetables: "Vegetables",
-    // dairy: "Dairy",
-    // snacks: "Snacks",
-    // meat: "Meat",
-    // vegetables: "vegetables",
-    // bakery: "Bakery",
-    // fruits: "Fruits"
+export const beverages = [
+    {
+        productName: 'Soft Drinks',
+        imageUrl: softDrinks
+    },
+    {
+        productName: 'Juices',
+        imageUrl: juices
+    },
+    {
+        productName: 'Coffee Powders',
+        imageUrl: coffee
+    },
+    {
+        productName: 'Water & Sodas',
+        imageUrl: water
+    },
+]
+export const babyCare = [
+    {
+        productName: 'Feeding & Nusring',
+        imageUrl: feedingAndNursing
+    },
+    {
+        productName: 'Bathing & Skincare',
+        imageUrl: babyBathingSkincare
+    },
+    {
+        productName: 'Diapering & Hygiene',
+        imageUrl: diaperingAndHygiene
+    },
+    {
+        productName: 'Baby Oil',
+        imageUrl: babyOil
+    },
 
-export default categories;
+]
+export const fruitsAndVegetables = [
+    {
+        productName: 'Leafy Vegetables',
+        imageUrl: leafyVegetables
+    },
+    {
+        productName: 'Root Vegetables',
+        imageUrl: rootVegetables
+    },
+    {
+        productName: 'Fruits',
+        imageUrl: fruits
+    },
+        {
+        productName: 'Exotic Vegetables',
+        imageUrl: exoticVegetables
+    },
+
+]
+
+export const personalCare = [
+     {
+        productName: 'Moisturizer',
+        imageUrl: moisturizers
+    },
+     {
+        productName: 'Sunscreen',
+        imageUrl: sunscreens
+    },
+     {
+        productName: 'Face Wash',
+        imageUrl: faceWash
+    },
+     {
+        productName: 'Body Wash & Soap',
+        imageUrl: bodyWash
+    },
+   
+]
+
+// vegetables: "Vegetables",
+// dairy: "Dairy",
+// snacks: "Snacks",
+// meat: "Meat",
+// vegetables: "vegetables",
+// bakery: "Bakery",
+// fruits: "Fruits"
